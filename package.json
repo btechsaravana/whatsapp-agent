@@ -1,0 +1,16 @@
+{
+  "name": "whatsapp-agent",
+  "version": "1.0.0",
+  "description": "Simple WhatsApp AI agent powered by Claude",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest",
+    "dotenv": "^16.4.5",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "latest"
+  }
+}
