@@ -1,6 +1,6 @@
 # WhatsApp AI Agent
 
-A simple WhatsApp auto-reply agent powered by [Claude](https://www.anthropic.com/claude). It links to your WhatsApp account through WhatsApp Web (by scanning a QR code) and replies to customers' messages automatically, using your business details.
+A simple WhatsApp auto-reply agent. It links to your WhatsApp account through WhatsApp Web (by scanning a QR code) and replies to customers' messages automatically, using your business details.
 
 ## Features
 
