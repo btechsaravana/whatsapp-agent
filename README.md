@@ -4,10 +4,11 @@ A simple WhatsApp auto-reply agent powered by [Claude](https://www.anthropic.com
 
 ## Features
 
-- Replies to private text messages automatically using Claude (`claude-opus-5-5`)
+- Replies to private text messages automatically using Claude (`claude-sonnet-5-5`)
 - Remembers the last 20 messages of each chat for context
 - Replies in the customer's language (Tamil, English, or Tanglish)
 - Skips group chats and status updates (configurable)
+- Test chat in the terminal, so you can try replies without WhatsApp
 - Scan the QR code once; the login is saved for later runs
 - If Claude declines a message, the request is automatically retried on another Claude model
 
@@ -52,27 +53,37 @@ ANTHROPIC_API_KEY=sk-ant-xxxxxxxx
 
 ### 4. Add your business details
 
-Open `index.js` and edit the `BUSINESS_INFO` text at the top. Add your services, timings and prices. Claude only knows what you write here.
+Open `agent.js` and edit the `BUSINESS_INFO` text at the top. Add your services, timings and prices. Claude only knows what you write here.
 
-### 5. Start the agent
+### 5. Test the replies (optional, no WhatsApp needed)
+
+Before linking your real number, chat with the bot in the terminal:
+
+```bash
+npm run chat
+```
+
+Type messages like a customer would and check the replies. Type `/reset` to start a new conversation, or `/exit` to quit. Edit `BUSINESS_INFO` and run it again until you're happy with the answers.
+
+### 6. Start the agent
 
 ```bash
 npm start
 ```
 
-### 6. Link your WhatsApp
+### 7. Link your WhatsApp
 
 A QR code appears in the terminal. On your phone, open **WhatsApp → Linked devices → Link a device** and scan it.
 
 When you see `✅ WhatsApp agent is running!`, the agent is working. Send a test message from another phone to check it.
 
-### 7. Stop the agent
+### 8. Stop the agent
 
 Press `Ctrl + C` in the terminal.
 
 ## Settings
 
-You can change these at the top of `index.js`:
+You can change these at the top of `agent.js`:
 
 | Setting           | Description                                   | Default |
 | ----------------- | --------------------------------------------- | ------- |
@@ -84,7 +95,9 @@ You can change these at the top of `index.js`:
 
 | File            | Purpose                                     |
 | --------------- | ------------------------------------------- |
-| `index.js`      | The agent code                              |
+| `agent.js`      | Claude logic and settings (shared)          |
+| `index.js`      | Connects the agent to WhatsApp              |
+| `test-chat.js`  | Test chat in the terminal (`npm run chat`)  |
 | `package.json`  | Project dependencies                        |
 | `.env.example`  | Template for your API key                   |
 | `.gitignore`    | Keeps secrets and login data out of Git     |
